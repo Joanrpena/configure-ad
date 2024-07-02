@@ -52,5 +52,14 @@ This lab will serve as a follow-up to the previous lab where I set up a VM as a 
 
 - We will now enable up Remote Dekstop for non-administrative users, so that users in the domain can access the client computer. Log in to your client VM with your administrator account > Right click the Start icon and click System > Remote Desktop > Select users that can remotely access this PC > Add > type Domain Users and click check names (this makes it so that every user thats part of the Domain Users group has access) > OK. You can now log into the client VM as a normal, non-administrative user.
   <br />
+
+  <p align="center">
+  <img src="https://github.com/Joanrpena/configure-ad/assets/131486928/99431c4c-2a7f-4f1e-809c-3d4a510b1e7f" height="60%" width="60%" alt="Configuration Steps" />
+  <img src="https://github.com/Joanrpena/configure-ad/assets/131486928/68bd14c2-116b-428e-99d3-838e43653fd0" height="60%" width="60%" alt="Configuration Steps" />
+ 
+</p>
+
+- Next, we'll create Users. You can do this manually and assign each user their permissions, but for this lab I'll be using a PowerShell script to automate this process. You can find the script <a href="https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1">Here.</a> Log in to your Domain Controller VM, we'll need the Active Directory modules for this step. On the lower hand search bar type Powershell_ise > Right click and open PowerShell ISE as Administator > copy the contents of the script onto the editor, then run the script and observe the User accounts being created. The script is set to create 10,000 random Users, stop the script when you feel comfortable.
+  <br />
   
    
