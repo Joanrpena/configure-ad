@@ -26,7 +26,7 @@ This lab will serve as a follow-up to the previous lab where I set up a VM as a 
    <img src="https://github.com/Joanrpena/configure-ad/assets/131486928/f4e3b157-78d6-48a9-8d60-857a890d34c4" height="60%" width="60%" alt="Configuration Steps" />
 </p>
 
-- Now that we have successfully installed Active Directory on our Domain Controller(DC) VM, we can start configuring Organizational Units(OU) and Users. We'll start creating an OU On the top right of server manager click on Tools, then click on Active Directory Users and Computers to open the Active Directory window. On the left hand side you should see the domain you created, with a series of default files included inside of it. Right click on your domain > Navigate to New > Click Organizational Unit > For this lab we'll create two OUs one named "_EMPLOYEES" and another named "_ADMINS". Now we will create a User with Administrator privileges. Click on your _ADMINS folder > Right click the empty space > New > User (Avoid using a generic name such as "admin" or "user" to simulate best practices. A new user will almost always be created with a real name) for this lab we'll use "John Smith". > Fill out the first and last name information, for this lab the logon name will be john_admin > Click Next > Set a password (For this lab we will set the password to never expire, and to not reset at logon. In general this is bad practice, so keep this in mind.) > Next > Finish. We will now set admin priveledge to our created User. Right click the User > Click Properties > Member Of > You can type Domain to get a view of all the default groups, but for this step we will use "Domain Admins" > OK. Now we can log out of our default account and log in to the newly created user account to test if everything works properly using the credentials for your domain. Example: "joandctest.com\john_admin"
+- Now that we have successfully installed Active Directory on our Domain Controller(DC) VM, we can start configuring Organizational Units(OU) and Users. We'll start with creating an OU. On the top right of server manager click on Tools, then click on Active Directory Users and Computers to open the Active Directory window. On the left hand side you should see the domain you created, with a series of default files included inside of it. Right click on your domain > Navigate to New > Click Organizational Unit > For this lab we'll create two OUs one named "_EMPLOYEES" and another named "_ADMINS". Now we will create a User with Administrator privileges. Click on your _ADMINS folder > Right click the empty space > New > User (Avoid using a generic name such as "admin" or "user" to simulate best practices. A new user will almost always be created with a real name) for this lab we'll use "John Smith". > Fill out the first and last name information, for this lab the logon name will be john_admin > Click Next > Set a password (For this lab we will set the password to never expire, and to not reset at logon. In general this is bad practice, so keep this in mind.) > Next > Finish. We will now set admin privileges to our created User. Right click the User > Click Properties > Member Of > You can type Domain to get a view of all the default groups, but for this step we will use "Domain Admins" > OK. Now we can log out of our default account and log in to the newly created user account to test if everything works properly using the credentials for your domain. Example: "joandctest.com\john_admin"
 <br />
 
 <p align="center">
@@ -50,7 +50,7 @@ This lab will serve as a follow-up to the previous lab where I set up a VM as a 
  
 </p>
 
-- We will now enable up Remote Dekstop for non-administrative users, so that users in the domain can access the client computer. Log in to your client VM with your administrator account > Right click the Start icon and click System > Remote Desktop > Select users that can remotely access this PC > Add > type Domain Users and click check names (this makes it so that every user thats part of the Domain Users group has access) > OK. You can now log into the client VM as a normal, non-administrative user.
+- We will now enable  Remote Desktop for non-administrative users, so that users in the domain can access the client computer. Log in to your client VM with your administrator account > Right click the Start icon and click System > Remote Desktop > Select users that can remotely access this PC > Add > type Domain Users and click check names (this makes it so that every user thats part of the Domain Users group has access) > OK. You can now log into the client VM as a normal, non-administrative user.
   <br />
 
   <p align="center">
@@ -61,5 +61,17 @@ This lab will serve as a follow-up to the previous lab where I set up a VM as a 
 
 - Next, we'll create Users. You can do this manually and assign each user their permissions, but for this lab I'll be using a PowerShell script to automate this process. You can find the script <a href="https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1">Here.</a> Log in to your Domain Controller VM, we'll need the Active Directory modules for this step. On the lower hand search bar type Powershell_ise > Right click and open PowerShell ISE as Administator > copy the contents of the script onto the editor, then run the script and observe the User accounts being created. The script is set to create 10,000 random Users, stop the script when you feel comfortable.
   <br />
+
+<p align="center">
+  <img src="https://github.com/Joanrpena/configure-ad/assets/131486928/8e55589a-2576-4edc-b922-6506bf9c6a9b" height="60%" width="60%" alt="Configuration Steps" />
+  <img src="https://github.com/Joanrpena/configure-ad/assets/131486928/177befc2-226d-43e2-9d1c-c76e2d4a8e67" height="60%" width="60%" alt="Configuration Steps" />
+</p>
+
+- Users created can now access the client VM. Pick a name from the newly created Users in the _EMPLOYEES Panel and log in using your domain credentials. Ex: joandctest.com\bat.hib (Default password created by the script is "Password1). Success!
+  <br />
+
+  <h2>Conclusions</h2>
   
-   
+   <p>
+     In this lab, I successfully configured Active Directory within Azure, starting by creating Organizational Units (OUs) and administrative user accounts. I configured DNS settings on the client VM to ensure proper communication with the domain controller, then joined the client machine to the domain. Remote Desktop access was enabled for domain users, and I automated the creation of 10,000 users using a PowerShell script. This lab reinforced my skills in managing Active Directory and configuring Azure virtual machines.
+   </p>
