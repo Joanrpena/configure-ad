@@ -19,3 +19,10 @@ This lab will serve as a follow-up to the previous lab where I set up a VM as a 
 - Windows 10 Pro (22H2)
 
 <h2>Configuration Steps</h2>
+<p align="center">
+  <img src="https://github.com/Joanrpena/configure-ad/assets/131486928/c643917b-34e0-49d2-879a-3bba5db6c4d3" height="60%" width="60%" alt="Installation Steps" />
+</p>
+
+- Now that we have successfully installed Active Directory on our Domain Controller(DC) VM, we can start configuring Organizational Units(OU) and Users. We'll start creating an OU On the top right of server manager click on Tools, then click on Active Directory Users and Computers to open the Active Directory window. On the left hand side you should see the domain you created, with a series of default files included inside of it. Right click on your domain > Navigate to New > Click Organizational Unit > For this lab we'll create two OUs one named "_EMPLOYEES" and another named "_ADMINS"
+
+ <br />
