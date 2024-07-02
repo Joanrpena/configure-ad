@@ -44,4 +44,13 @@ This lab will serve as a follow-up to the previous lab where I set up a VM as a 
 
 - To join our client VM to the domain establish a connection to it and log in as the original local admin > right click on the Start icon, then click System > Rename this PC (Advanced) > Change > under Member Of click Domain and enter the name of the domain you created previously (joandctest.com) > Enter the credentials for the admin user you created earlier. EX: (joandctest.com\john_admin) > Restart the VM. Log back in to your DC VM and confirm the client VM appears in the Active Directory Users and Computers panel.
   <br />
+
+<p align="center">
+  <img src="https://github.com/Joanrpena/configure-ad/assets/131486928/7daf0b31-8cf7-4339-aeca-2c49e25d8dd4" height="60%" width="60%" alt="Configuration Steps" />
+ 
+</p>
+
+- We will now enable up Remote Dekstop for non-administrative users, so that users in the domain can access the client computer. Log in to your client VM with your administrator account > Right click the Start icon and click System > Remote Desktop > Select users that can remotely access this PC > Add > type Domain Users and click check names (this makes it so that every user thats part of the Domain Users group has access) > OK. You can now log into the client VM as a normal, non-administrative user.
+  <br />
+  
    
